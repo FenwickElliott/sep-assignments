@@ -4,6 +4,15 @@ class LinkedList
   attr_accessor :head
   attr_accessor :tail
 
+  def find(key)
+    i = @head
+    while i
+      return i if i.key == key
+      i = i.next
+    end
+    # return "Not found"
+  end
+
   # This method creates a new `Node` using `data`, and inserts it at the end of the list.
   def add_to_tail(node)
     if @head
