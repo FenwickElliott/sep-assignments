@@ -29,14 +29,10 @@ class SeparateChaining
   end
 
   def [](key)
-    p = @base_array[key.sum % size].head
-    while p
-      return p.value if p.key == key
-      p = p.next
-    end
+    @base_array[key.sum % size].each {|node| return node.value if node.key == key}
   end
 
-  def index(key, size)
+  def index(key, size = self.size)
     key.sum % @base_array.size
   end
 
